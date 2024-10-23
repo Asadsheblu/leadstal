@@ -45,9 +45,8 @@ export default function ReverseTextGenerator() {
       </div>
 
       {/* Reset Button */}
-      <button style={styles.resetButton} onClick={() => setText('')}>
-        <span role="img" aria-label="delete">🗑️</span> Clear Text
-      </button>
+      <button style={styles.button} onClick={() => setText(reverseEachWord(text))}>Reverse each word&#39;s Lettering</button>
+
     </div>
   );
 }

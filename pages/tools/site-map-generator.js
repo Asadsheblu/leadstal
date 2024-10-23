@@ -79,7 +79,7 @@ export default function SitemapGenerator() {
               value="UseServer"
               checked={lastMod === 'UseServer'}
               onChange={() => setLastMod('UseServer')}
-            /> Use server's response
+            /> Use server&#39;s response
           </label>
           <label>
             <input
@@ -176,4 +176,3 @@ const styles = {
     fontSize: '16px',
   },
 };
-
