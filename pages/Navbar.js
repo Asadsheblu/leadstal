@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const Navbar = () => {
     return (
@@ -37,17 +38,17 @@ const Navbar = () => {
                                     Tools
                                 </a>
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a className="dropdown-item" href="tools/email-finder">Email Finder</a></li>
-                                    <li><a className="dropdown-item" href="tools/email-validator">Email Checker</a></li>
-                                    <li><a className="dropdown-item" href="tools/number-finder">Website Number Checker</a></li>
-                                    <li><a className="dropdown-item" href="tools/link-finder">Website Link Finder</a></li>
-                                    <li><a className="dropdown-item" href="tools/social-finder">Website Number Checker</a></li>
-                                    <li><a className="dropdown-item" href="tools/word-counter">Word Counter</a></li>
-                                    <li><a className="dropdown-item" href="tools/reverse-text-generator">Reverse Text Generator</a></li>
-                                    <li><a className="dropdown-item" href="tools/small-text-generator">Small Text Generator</a></li>
-                                    <li><a className="dropdown-item" href="tools/change-text-case">Change Text Case</a></li>
+                                    <li><Link href="/tools/email-finder" className="dropdown-item">Email Finder</Link></li>
+                                    <li><Link href="/tools/email-validator" className="dropdown-item">Email Checker</Link></li>
+                                    <li><Link href="/tools/number-finder" className="dropdown-item">Website Number Checker</Link></li>
+                                    <li><Link href="/tools/link-finder" className="dropdown-item">Website Link Finder</Link></li>
+                                    <li><Link href="/tools/social-finder" className="dropdown-item">Social Media Finder</Link></li>
+                                    <li><Link href="/tools/word-counter" className="dropdown-item">Word Counter</Link></li>
+                                    <li><Link href="/tools/reverse-text-generator" className="dropdown-item">Reverse Text Generator</Link></li>
+                                    <li><Link href="/tools/small-text-generator" className="dropdown-item">Small Text Generator</Link></li>
+                                    <li><Link href="/tools/change-text-case" className="dropdown-item">Change Text Case</Link></li>
                                     <li><hr className="dropdown-divider" /></li>
-                                    <li><a className="dropdown-item" href="#">More Tools</a></li>
+                                    <li><Link href="/tools" className="dropdown-item">More Tools</Link></li>
                                 </ul>
                             </li>
                         </ul>

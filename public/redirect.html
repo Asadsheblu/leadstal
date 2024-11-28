@@ -1,0 +1,33 @@
+<!-- /public/redirect.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <script>
+    // URL থেকে শর্ট কোড নেয়ার জন্য
+    const params = new URLSearchParams(window.location.search);
+    const shortCode = params.get("code");
+
+    if (shortCode) {
+      // localStorage থেকে মূল URL পাওয়া যাচ্ছে কিনা চেক করা
+      const originalUrl = localStorage.getItem(shortCode);
+
+      if (originalUrl) {
+        // সঙ্গে সঙ্গে মূল URL এ রিডিরেক্ট করা হচ্ছে
+        window.location.href = originalUrl;
+      } else {
+        // না পাওয়া গেলে 404 পেজে রিডিরেক্ট করা
+        window.location.href = "/404";
+      }
+    } else {
+      // শর্ট কোড না পেলে হোমপেজে রিডিরেক্ট করা
+      window.location.href = "/";
+    }
+  </script>
+</head>
+<body>
+  <!-- কোনো UI নেই, সরাসরি রিডিরেক্ট -->
+</body>
+</html>
