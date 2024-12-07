@@ -1,12 +1,20 @@
-import mongoose from 'mongoose';
+// utils/dbConnect.js
+import { MongoClient } from 'mongodb';
 
-const dbConnect = async () => {
-  if (mongoose.connection.readyState >= 1) return;
+let cachedClient = null;
+let cachedDb = null;
 
-  await mongoose.connect(process.env.MONGO_URI, {
+export const connectToDatabase = async () => {
+  if (cachedDb) return cachedDb;
+
+  const client = await MongoClient.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
-};
 
-export default dbConnect;
+  const db = client.db();  // Default database (can be configured in the URI)
+  cachedClient = client;
+  cachedDb = db;
+
+  return db;
+};
