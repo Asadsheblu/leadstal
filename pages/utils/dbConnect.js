@@ -1,20 +1,21 @@
-// utils/dbConnect.js
 import { MongoClient } from 'mongodb';
 
-let cachedClient = null;
+const client = new MongoClient(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+
 let cachedDb = null;
 
-export const connectToDatabase = async () => {
-  if (cachedDb) return cachedDb;
+export default async function dbConnect() {
+  if (cachedDb) {
+    return cachedDb;
+  }
 
-  const client = await MongoClient.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
-
-  const db = client.db();  // Default database (can be configured in the URI)
-  cachedClient = client;
-  cachedDb = db;
-
-  return db;
-};
+  try {
+    await client.connect();
+    cachedDb = client.db(); // Default database
+    console.log('MongoDB connected');
+    return cachedDb;
+  } catch (error) {
+    console.error('MongoDB connection failed:', error);
+    throw new Error('Failed to connect to MongoDB');
+  }
+}
