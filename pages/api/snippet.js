@@ -1,5 +1,5 @@
 // pages/api/snippet.js
-import { connectToDatabase } from '../../utils/dbConnect';
+import { connectToDatabase } from "../utils/dbConnect";
 
 export default async function handler(req, res) {
   const { id } = req.query;

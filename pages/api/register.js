@@ -1,7 +1,7 @@
 // pages/api/register.js
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { connectToDatabase } from '../../utils/dbConnect';
+import { connectToDatabase } from "../utils/dbConnect";
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {

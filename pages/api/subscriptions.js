@@ -1,5 +1,7 @@
 // pages/api/subscriptions.js
-import { connectToDatabase } from '../../utils/dbConnect';
+
+import { connectToDatabase } from "../utils/dbConnect";
+
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
